@@ -1,10 +1,13 @@
 import Layout from "@/components/layouts/Layout";
+import { ProductProvider } from "@/context/products/ProductsProvider";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ProductProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ProductProvider>
   );
 }
