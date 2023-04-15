@@ -32,7 +32,7 @@ export const ProductTitle = ({ title, id }) => {
           name={title}
           value={titleProduct}
           onChange={handleInput}
-          className={`py-2 border `}
+          className={`w-full px-1 py-2 border `}
         />
       </div>
 
