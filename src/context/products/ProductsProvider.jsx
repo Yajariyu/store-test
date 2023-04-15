@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from "react";
-import { ADD_PRODUCTS } from "./productType";
+import { ADD_PRODUCTS, CHANGE_TITLE } from "./productType";
 
 import { ProductsContext } from "./ProductContext";
 import { productReducer } from "./productReducer";
@@ -18,9 +18,15 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
+  const changeTitle = ({ title, id }) => {
+    dispatch({
+      type: CHANGE_TITLE,
+      payload: { title, id },
+    });
+  };
   return (
     <ProductsContext.Provider
-      value={{ products: state.products, addProducts, dispatch }}
+      value={{ products: state.products, addProducts, dispatch, changeTitle }}
     >
       {children}
     </ProductsContext.Provider>
