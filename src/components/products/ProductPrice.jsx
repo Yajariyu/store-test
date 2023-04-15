@@ -34,7 +34,7 @@ const ProductPrice = ({ product }) => {
         />
       </div>
       <button
-        class="rounded-full bg-purple-600 text-white font-bold py-2"
+        className="rounded-full bg-purple-600 text-white font-bold py-2"
         onClick={addCart}
       >
         Add to Cart

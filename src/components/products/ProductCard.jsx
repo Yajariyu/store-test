@@ -14,12 +14,13 @@ export const ProductCard = ({ product }) => {
           alt={product.title}
           fill
           style={{ objectFit: "contain" }}
+          sizes="(max-width:80%)"
         />
       </div>
-      <div c>
+      <div>
         <ProductTitle title={product.title} id={product.id} />
         <ProductPrice product={product} />
-        <div className=" min-h-[150px] max-h-[150px]">
+        <div className="min-h-[150px] max-h-[150px]">
           <p className="line-clamp-5">{product.description}</p>
         </div>
       </div>

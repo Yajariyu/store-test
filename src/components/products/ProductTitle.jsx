@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
-import { ProductsContext } from "@/context/products/ProductContext";
 
 export const ProductTitle = ({ title, id }) => {
-  const { changeTitle } = useContext(ProductsContext);
+  const [titleProduct, setTitleProduct] = useState(title);
   const [size, setSize] = useState("16");
+
   const handleInput = (e) => {
     const titleChange = e.target.value;
-    changeTitle({ title: titleChange, id });
+    setTitleProduct(titleChange);
   };
 
   const handleTitleSize = (e) => {
@@ -22,7 +22,7 @@ export const ProductTitle = ({ title, id }) => {
           className="line-clamp-2 break-words text-ellipsis  font-bold text-start"
           style={{ fontSize: Number(size) }}
         >
-          {title}
+          {titleProduct}
         </p>
       </div>
 
@@ -30,7 +30,7 @@ export const ProductTitle = ({ title, id }) => {
         <input
           type="text"
           name={title}
-          value={title}
+          value={titleProduct}
           onChange={handleInput}
           className={`py-2 border `}
         />
