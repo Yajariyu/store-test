@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductTitle } from "./ProductTitle";
 import ProductPrice from "./ProductPrice";
+import ProductModal from "../ui/Modal/ProductModal";
 
 export const ProductCard = ({ product }) => {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <div className=" flex flex-col w-full md:w-[300px] lg:w-[250px] min-h-[300px] px-4 border rounded-lg border-purple-600 ">
       <div className="relative min-h-[100px] h-2/4 px-auto mt-6">
@@ -24,9 +26,15 @@ export const ProductCard = ({ product }) => {
           <p className="line-clamp-5">{product.description}</p>
         </div>
       </div>
-      <Link href="/" className="mb-4 text-center underline">
+      <span
+        onClick={() => setOpenModal(true)}
+        className="mb-4 text-center underline cursor-pointer"
+      >
         Learn more
-      </Link>
+      </span>
+      {openModal && (
+        <ProductModal product={product} setOpenModal={setOpenModal} />
+      )}
     </div>
   );
 };

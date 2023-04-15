@@ -11,6 +11,11 @@ export default function Home({ products }) {
   );
 }
 
+/**
+ *
+ * Data limit to 20 products.
+ * @returns Product Store Data from Static Props  or 404 (no data)
+ */
 export async function getStaticProps() {
   try {
     const { data } = await productApi.get("/products?limit=20");
