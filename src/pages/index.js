@@ -12,12 +12,16 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await productApi.get("/products?limit=20");
-
-  return {
-    props: {
-      products: data,
-    },
-    revalidate: 3600,
-  };
+  try {
+    const { data } = await productApi.get("/products?limit=20");
+    if (!data) return { notFound: true };
+    return {
+      props: {
+        products: data,
+      },
+      revalidate: 3600,
+    };
+  } catch (e) {
+    return { notFound: true };
+  }
 }
