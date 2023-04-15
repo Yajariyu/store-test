@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from "react";
-import { ADD_PRODUCTS, CHANGE_TITLE } from "./productType";
+import { ADD_PRODUCTS, CHANGE_TITLE, UPDATE_FONT_SIZE } from "./productType";
 
 import { ProductsContext } from "./ProductContext";
 import { productReducer } from "./productReducer";
@@ -24,9 +24,15 @@ export const ProductProvider = ({ children }) => {
       payload: { title, id },
     });
   };
+
   return (
     <ProductsContext.Provider
-      value={{ products: state.products, addProducts, dispatch, changeTitle }}
+      value={{
+        products: state.products,
+        addProducts,
+        dispatch,
+        changeTitle,
+      }}
     >
       {children}
     </ProductsContext.Provider>

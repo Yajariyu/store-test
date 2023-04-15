@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductTitle } from "./ProductTitle";
+import ProductPrice from "./ProductPrice";
 
 export const ProductCard = ({ product }) => {
   return (
@@ -15,19 +16,14 @@ export const ProductCard = ({ product }) => {
           style={{ objectFit: "contain" }}
         />
       </div>
-      <div>
+      <div c>
         <ProductTitle title={product.title} id={product.id} />
-        <div>
-          <p className="font-bold">${product.price} </p>
-        </div>
+        <ProductPrice product={product} />
         <div className=" min-h-[150px] max-h-[150px]">
           <p className="line-clamp-5">{product.description}</p>
         </div>
       </div>
-      <button class="rounded-full bg-purple-600 text-white font-bold py-2">
-        Add to Cart
-      </button>
-      <Link href="/" className="my-2 text-center underline">
+      <Link href="/" className="mb-4 text-center underline">
         Learn more
       </Link>
     </div>

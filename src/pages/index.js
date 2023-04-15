@@ -16,16 +16,10 @@ export default function Home() {
   useEffect(() => {
     const fechData = async () => {
       const { data } = await productApi.get("/products?limit=20");
-      const productWithTitle = data.map((product) => ({
-        ...product,
-        titleSize: 12,
-      }));
-      if (productWithTitle) {
-        dispatch({
-          type: ADD_PRODUCTS,
-          payload: productWithTitle,
-        });
-      }
+      dispatch({
+        type: ADD_PRODUCTS,
+        payload: data,
+      });
     };
     fechData();
   }, [dispatch]);
@@ -36,5 +30,3 @@ export default function Home() {
     </>
   );
 }
-
-
