@@ -17,9 +17,10 @@ const ProductPrice = ({ product }) => {
   const addCart = () => {
     updateCart({
       id: product.id,
-      quantity: Number(quantity),
+      quantity: parseInt(quantity),
       price: product.price,
     });
+    setQuantity(parseInt(quantity));
   };
   return (
     <div className="w-full flex flex-col justify-center mb-2">
